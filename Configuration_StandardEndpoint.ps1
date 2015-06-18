@@ -252,6 +252,43 @@
             Ensure = "Present"
             DependsOn = "[Package]InstallFirefox"
         }
+    
+#Enable Adobe Flash Background Updater    
+    File mms.cfg
+        {
+            Ensure = "Present"
+            SourcePath = "\\tervis.prv\SYSVOL\tervis.prv\scripts\Logon\Adobe Flash\mms.cfg"
+	        DestinationPath = "C:\Windows\SysWOW64\Macromed\Flash\mms.cfg"
+            DependsOn = "[Package]InstallAdobeFlash"
+        }
+    
+#Install Adobe Reader DC
+    Package InstallAdobeReader
+        {
+            Name = "Adobe Acrobat Reader DC MUI"
+            Path = "\\tervis.prv\SYSVOL\tervis.prv\scripts\Logon\Adobe Reader\AcroRdrDC1500720033_MUI.exe"
+            ProductId = "AC76BA86-7AD7-FFFF-7B44-AC0F074E4100"
+            Arguments = "/sAll /rs"
+            Ensure = "Present"
+        }
+
+#Install Cisco Jabber
+    Package InstallCiscoJabber
+        {
+            Name = "Cisco Jabber"
+            Path = "\\tervis.prv\SYSVOL\tervis.prv\scripts\Logon\Jabber 9.7.4\CiscoJabberSetup.msi"
+            ProductId = "A4C8716A-55AD-4FBD-9B47-0FB0036B0F5C"
+            Ensure = "Present"
+        }
+
+#Install Google Chrome
+    Package InstallChrome
+        {
+            Name = "Google Chrome"
+            Path = "\\tervis.prv\SYSVOL\tervis.prv\scripts\Logon\Google Chrome\googlechromestandaloneenterprise.msi"
+            ProductId = ""
+            Ensure = "Present"
+        }
     }
 }
 StandardEndpoint
